@@ -41,7 +41,7 @@ try {
     if(result?.recordset.length>0){
         return res.status(200).json({students:result.recordset})
     }else{
-        return res.status(400).json({msg: 'No student found'})
+        return res.status(400).json({msg: 'No students found'})
     }
     
 } catch (error) {
@@ -58,7 +58,7 @@ const fetchOneStudent = async  (req , res)=>{
         if(result.recordset.length>0){
             return res.status(200).json({student:result.recordset[0]})
         }else{
-            return res.status(400).json({msg: 'No student found'})
+            return res.status(400).json({msg: 'Student not found'})
         }
         
     } catch (error) {
@@ -95,9 +95,13 @@ const deleteStudent = async (req , res)=>{
         const result = await DB.executeProcedure('deleteStudent' , {id})
         if(result.rowsAffected[0]>0){
             return res.status(200).json({msg: 'Student deleted successfully'})
+        }else{
+            return res.status(400).json({msg: 'Student not found, thus not deleted'})
         }
         
     } catch (error) {
+        console.log(error)
+        return res.status(500).json({msg:"Server Error"})
         
     }
 }
