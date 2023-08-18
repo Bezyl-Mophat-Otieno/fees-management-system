@@ -8,7 +8,7 @@ studentRouter.post("/add", addStudent )
 studentRouter.get("/", fetchStudents )
 studentRouter.get("/:id", fetchOneStudent )
 studentRouter.put("/:id", deleteStudent )
-studentRouter.put("/:id", updateStudentFees )
+studentRouter.put("/update/:id", updateStudentFees )
 
 
 
