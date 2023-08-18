@@ -9,12 +9,12 @@ import { v4 } from 'uuid';
 
 describe('Test Driven Development Approach Testing EndPoints', () => {
 
-    // it('should return 200 and the student added in the system', async () => {
-    //     const res = await request(app).post('/api/student/add').send({fullname:'Ledama Ole Kina',current_class:'3W',feebalance:40000})
-    //     expect(res.statusCode).toEqual(200)
-    //     expect(res.body.msg).toEqual('Student added successfully')  
+    it('should return 200 and the student added in the system', async () => {
+        const res = await request(app).post('/api/student/add').send({fullname:'Ledama Ole Kina',current_class:'3W',feebalance:40000})
+        expect(res.statusCode).toEqual(200)
+        expect(res.body.msg).toEqual('Student added successfully')  
         
-    // })
+    })
     it('should resolve with a status code of 200 and the list of students in the system',async()=>{
         const res = await request(app).get('/api/student/')
         expect(res.statusCode).toEqual(200)
