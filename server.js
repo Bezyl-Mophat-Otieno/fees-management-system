@@ -9,8 +9,9 @@ app.use(urlencoded({ extended: true }));
 
 app.use("/api/student", studentRouter);
 
-app.listen(port, async () => {
+app.listen(port, async (req, res) => {
   await dbConnection();
+  res.send("Server is running");
   console.log(`Server is running on port ${port}`);
 });
 
