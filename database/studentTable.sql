@@ -15,3 +15,6 @@ BEGIN CATCH
 END CATCH;
 
 
+    INSERT INTO studentFeeTable (id, fullname, current_class, feebalance) VALUES ('1', 'John Doe', 'JSS 1', 50000);
+
+SELECT * FROM studentFeeTable;
