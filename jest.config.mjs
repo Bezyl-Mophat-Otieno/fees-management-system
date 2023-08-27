@@ -188,10 +188,6 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-
-  jest: {
-    reporters: ["default", "jest-junit"],
-  },
 };
 
 export default config;

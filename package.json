@@ -14,7 +14,7 @@
     "node": ">=18.14.2"
   },
   "scripts": {
-    "test": "jest --watch --coverageReporters=jest-junit",
+    "test": "jest --watch",
     "dev": "nodemon server.js"
   },
   "name": "tdd-first-school-system",
