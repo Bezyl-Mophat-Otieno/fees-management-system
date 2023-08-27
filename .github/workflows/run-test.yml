@@ -1,0 +1,25 @@
+name: Running Unit Tests on push
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Repositories code
+        uses: actions/checkout@v2
+      - name: set Up Node js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "18.x"
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Unit Tests
+        run: npm run test
+      - name: Publish the Tests Results and Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results
+          path: ./testscoverage

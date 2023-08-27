@@ -10,8 +10,11 @@
     "supertest": "^6.3.3",
     "uuid": "^9.0.0"
   },
+  "engines": {
+    "node": ">=18.14.2"
+  },
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --verbose --coverage",
     "dev": "nodemon server.js"
   },
   "name": "tdd-first-school-system",
