@@ -1,25 +1,28 @@
-name: Running Unit Tests on push
-on:
-  push:
-    branches:
-      - main
+name: Run Tests
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout the Repositories code
-        uses: actions/checkout@v2
-      - name: set Up Node js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          node-version: "18"
+
       - name: Install Dependencies
-        run: npm install
-      - name: Run Unit Tests
-        run: npm run test
-      - name: Publish the Tests Results and Coverage
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Archive test results
+        if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: Test Results
-          path: ./testscoverage
+          name: test-results
+          path: |
+            ./**/junit.xml
